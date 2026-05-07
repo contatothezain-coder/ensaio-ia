@@ -1,15 +1,43 @@
 ---
+import logo from "../assets/images/ensaio-ia-logo.svg";
 ---
-<header class="sticky top-0 z-50 w-full backdrop-blur-xl bg-[rgba(10,10,12,0.9)] border-b border-[rgba(0,217,255,0.12)]" style="box-shadow: 0 4px 24px rgba(0, 217, 255, 0.08);">
-	<div class="max-w-7xl mx-auto flex items-center justify-between py-3 px-4 md:px-8">
-		<a href="https://ensaioia.com.br" class="hover:opacity-80 transition-opacity duration-200" aria-label="Ensaio IA - Página Inicial">
-			<img src="/logo.svg" class="w-[140px] lg:w-[190px]" width={859} height={170} alt="Ensaio IA" />
+
+<header
+	class="sticky top-0 z-50 w-full backdrop-blur-xl bg-[rgba(10,10,12,0.9)] border-b border-[rgba(0,217,255,0.12)]"
+	style="box-shadow: 0 4px 24px rgba(0, 217, 255, 0.08);"
+>
+	<div
+		class="max-w-7xl mx-auto flex items-center justify-between py-3 px-4 md:px-8"
+	>
+		<a
+			href="https://ensaioia.com.br"
+			class="hover:opacity-80 transition-opacity duration-200"
+			aria-label="Ensaio IA - Página Inicial"
+		>
+			<img
+				src={logo.src}
+				class="w-[140px] lg:w-[190px]"
+				width={859}
+				height={170}
+				alt="Ensaio IA"
+			/>
 		</a>
 		<div class="flex items-center justify-center gap-4 lg:gap-8">
 			<nav class="hidden md:flex gap-8 font-medium text-[#F5F5F5]">
-				<a href="#about" class="hover:text-[#00D9FF] transition-colors duration-200">O Que é?</a>
-				<a href="#examples" class="hover:text-[#00D9FF] transition-colors duration-200">Exemplos</a>
-				<a href="#plans" class="hover:text-[#00D9FF] transition-colors duration-200">Planos</a>
+				<a
+					href="#about"
+					class="hover:text-[#00D9FF] transition-colors duration-200"
+					>O Que é?</a
+				>
+				<a
+					href="#examples"
+					class="hover:text-[#00D9FF] transition-colors duration-200"
+					>Exemplos</a
+				>
+				<a
+					href="#plans"
+					class="hover:text-[#00D9FF] transition-colors duration-200">Planos</a
+				>
 			</nav>
 			<a
 				href="https://wa.me/5512983173077?text=Olá, gostaria de fazer um ensaio com IA."
