@@ -2,18 +2,23 @@
 import pt from "../locales/pt_BR.json"
 const t = pt.about
 ---
-<section id="about" class="w-full py-20 bg-transparent flex flex-col items-center justify-center">
-	<h2 class="text-3xl md:text-4xl lg:text-5xl max-w-5xl font-extrabold text-center mb-12 bg-gradient-to-r from-accent-primary to-accent-secondary bg-clip-text text-transparent drop-shadow-accent-primary">
+<section id="about" class="w-full py-24 bg-transparent flex flex-col items-center justify-center relative">
+	<!-- Background glow -->
+	<div aria-hidden="true" class="absolute inset-0 pointer-events-none">
+		<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full bg-[#00D9FF] opacity-5 blur-[100px]"></div>
+	</div>
+	
+	<h2 class="text-3xl md:text-4xl lg:text-5xl max-w-5xl font-extrabold text-center mb-16 bg-gradient-to-r from-[#00D9FF] to-[#EEFF00] bg-clip-text text-transparent relative z-10">
 		{t.title}
 	</h2>
-	<div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-5xl px-4">
+	<div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl px-4 relative z-10">
 		{t.steps.map((step, idx) => (
-			<div class={`bg-white/5 rounded-2xl p-8 flex flex-col items-center shadow-lg transition-transform duration-200 ${idx === 1 ? 'hover:-translate-y-2 hover:shadow-[0_0_24px_var(--color-accent-pink)] border border-transparent hover:border-[var(--color-accent-pink)]' : 'hover:-translate-y-2 hover:shadow-[0_0_24px_var(--color-accent-blue)] border border-transparent hover:border-[var(--color-accent-blue)]'}`}>
-				<div class={`text-5xl font-extrabold mb-4 ${idx === 1 ? 'text-accent-primary drop-shadow-[0_0_8px_accent_secondary]' : 'text-[var(--color-accent-blue)] drop-shadow-[0_0_8px_var(--color-accent-blue)]'}`}>
+			<div class={`bg-[#141418] rounded-2xl p-8 flex flex-col items-center transition-all duration-300 border ${idx === 1 ? 'border-[#EEFF00]/30 hover:border-[#EEFF00] hover:shadow-[0_0_32px_rgba(238,255,0,0.2)]' : 'border-[#00D9FF]/20 hover:border-[#00D9FF] hover:shadow-[0_0_32px_rgba(0,217,255,0.2)]'} hover:-translate-y-2`}>
+				<div class={`text-5xl font-extrabold mb-4 ${idx === 1 ? 'text-[#EEFF00]' : 'text-[#00D9FF]'}`} style={idx === 1 ? 'text-shadow: 0 0 16px rgba(238, 255, 0, 0.4);' : 'text-shadow: 0 0 16px rgba(0, 217, 255, 0.4);'}>
 					{step.icon}
 				</div>
-				<h3 class="text-xl font-bold mb-2 text-[var(--color-text-base)] text-center">{step.title}</h3>
-				<p class="text-[var(--color-text-muted)] text-center text-base">{step.desc}</p>
+				<h3 class="text-xl font-bold mb-3 text-[#F5F5F5] text-center">{step.title}</h3>
+				<p class="text-[#9CA3AF] text-center text-base leading-relaxed">{step.desc}</p>
 			</div>
 		))}
 	</div>

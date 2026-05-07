@@ -4,29 +4,35 @@ const t = pt.plans;
 const plans = t.plans;
 const whatsappLink = import.meta.env.PUBLIC_WHATSAPP_LINK;
 ---
-<section id="plans" class="w-full py-20 flex flex-col items-center justify-center bg-transparent">
-  <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-4 bg-gradient-to-r from-[var(--color-accent-pink)] to-[var(--color-accent-blue)] bg-clip-text text-transparent">
+<section id="plans" class="w-full py-24 flex flex-col items-center justify-center bg-transparent relative">
+  <!-- Background glow -->
+  <div aria-hidden="true" class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-0 right-1/4 w-[400px] h-[400px] rounded-full bg-[#EEFF00] opacity-5 blur-[100px]"></div>
+    <div class="absolute bottom-0 left-1/4 w-[400px] h-[400px] rounded-full bg-[#00D9FF] opacity-5 blur-[100px]"></div>
+  </div>
+  
+  <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-4 bg-gradient-to-r from-[#EEFF00] to-[#00D9FF] bg-clip-text text-transparent relative z-10">
     {t.title}
   </h2>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-5xl mt-12 px-4">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl mt-12 px-4 relative z-10">
     {plans.map((plan, i) => (
       <div class={[
-        'relative flex flex-col items-center bg-[var(--color-primary)] rounded-2xl p-8 shadow-lg transition-all duration-200',
-        plan.badge ? 'border-2 border-[var(--color-accent-pink)] scale-105 z-10 shadow-[0_0_32px_var(--color-accent-pink)]' : 'border border-transparent',
-        'hover:scale-105 hover:shadow-[0_0_24px_var(--color-accent-blue)]',
-      ].join(' ')}>
+        'relative flex flex-col items-center bg-[#141418] rounded-2xl p-8 transition-all duration-300',
+        plan.badge ? 'border-2 border-[#EEFF00] scale-105 z-10' : 'border border-[#00D9FF]/20',
+        'hover:scale-[1.02] hover:-translate-y-1',
+      ].join(' ')} style={plan.badge ? 'box-shadow: 0 0 40px rgba(238, 255, 0, 0.2);' : ''}>
         {plan.badge && (
-          <span class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-bold bg-[var(--color-accent-pink)] text-slate-900 shadow-md border-2 border-[var(--color-background)] z-20">
+          <span class="absolute -top-4 left-1/2 -translate-x-1/2 px-5 py-1.5 rounded-full text-xs font-bold bg-[#EEFF00] text-[#0A0A0C] shadow-lg z-20">
             {plan.badge}
           </span>
         )}
-        <div class="text-2xl font-extrabold mb-2 text-[var(--color-accent-blue)] text-center">{plan.name}</div>
-        <div class="text-4xl font-extrabold mb-2 text-white text-center">{plan.price}</div>
-        <div class="text-base text-[var(--color-text-muted)] mb-6 text-center">{plan.desc}</div>
-        <ul class="flex flex-col gap-2 mb-8 w-full">
+        <div class="text-2xl font-extrabold mb-2 text-[#00D9FF] text-center">{plan.name}</div>
+        <div class="text-4xl font-extrabold mb-2 text-[#F5F5F5] text-center">{plan.price}</div>
+        <div class="text-base text-[#9CA3AF] mb-6 text-center">{plan.desc}</div>
+        <ul class="flex flex-col gap-3 mb-8 w-full">
           {plan.benefits.map(benefit => (
-            <li class="flex items-center gap-2 text-[var(--color-text-base)] text-sm md:text-base">
-              <svg class="w-5 h-5 text-[var(--color-accent-blue)] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+            <li class="flex items-center gap-3 text-[#F5F5F5] text-sm md:text-base">
+              <svg class="w-5 h-5 text-[#00D9FF] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
               <span>{benefit}</span>
             </li>
           ))}
@@ -36,11 +42,12 @@ const whatsappLink = import.meta.env.PUBLIC_WHATSAPP_LINK;
           target="_blank"
           rel="noopener"
           class={[
-            'w-full text-center rounded-full font-semibold py-3 px-6 transition-all duration-200 mt-auto',
+            'w-full text-center rounded-full font-bold py-3 px-6 transition-all duration-300 mt-auto',
             plan.badge
-              ? 'bg-[var(--color-accent-pink)] text-slate-900 shadow-md hover:bg-[var(--color-accent-blue)] hover:text-black focus:ring-2 focus:ring-[var(--color-accent-blue)]'
-              : 'border-2 border-[var(--color-accent-blue)] text-[var(--color-accent-blue)] bg-transparent hover:bg-[var(--color-accent-blue)] hover:text-black focus:ring-2 focus:ring-[var(--color-accent-blue)]',
+              ? 'bg-[#EEFF00] text-[#0A0A0C] hover:bg-[#00D9FF] focus:ring-2 focus:ring-[#00D9FF] focus:ring-offset-2 focus:ring-offset-[#0A0A0C]'
+              : 'border-2 border-[#00D9FF] text-[#00D9FF] bg-transparent hover:bg-[#00D9FF] hover:text-[#0A0A0C] focus:ring-2 focus:ring-[#EEFF00] focus:ring-offset-2 focus:ring-offset-[#0A0A0C]',
           ].join(' ')}
+          style={plan.badge ? 'box-shadow: 0 0 16px rgba(238, 255, 0, 0.3);' : 'box-shadow: 0 0 12px rgba(0, 217, 255, 0.15);'}
         >
           {plan.cta}
         </a>

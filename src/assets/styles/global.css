@@ -1,56 +1,66 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #0D0D0F;
-  --color-primary: #1E1E24;
-  --color-text-base: #E0E0E0;
-  --color-text-muted: #A0A0A0;
+  --color-background: #0A0A0C;
+  --color-primary: #141418;
+  --color-text-base: #F5F5F5;
+  --color-text-muted: #9CA3AF;
   --color-accent-primary: #00D9FF;
-  --color-accent-secondary: #eeff00;
+  --color-accent-secondary: #EEFF00;
+  --color-accent-pink: #EEFF00;
+  --color-accent-blue: #00D9FF;
 }
 
 ::selection {
-  background: var(--color-accent-pink);
-  color: #fff;
+  background: var(--color-accent-secondary);
+  color: #0A0A0C;
 }
 
-.text-glow-pink {
+/* Glow effects baseados no logo */
+.text-glow-yellow {
   text-shadow:
-    0 0 2px var(--color-accent-pink),
-    0 0 6px rgba(229, 255, 0, 0.25),
-    0 0 12px rgba( 229, 255, 0, 0.18);
-}
-.text-glow-blue {
-  text-shadow:
-    0 0 2px var(--color-accent-blue),
-    0 0 6px rgba(229, 255, 0, 0.22),
-    0 0 12px rgba(229, 255, 0, 0.14);
-}
-.box-glow-pink {
-  box-shadow:
-    0 0 2px var(--color-accent-pink),
-    0 0 8px rgba(229, 255, 0, 0.18);
-}
-.box-glow-blue {
-  box-shadow:
-    0 0 2px var(--color-accent-blue),
-    0 0 8px rgba(76,201,240,0.14);
+    0 0 2px var(--color-accent-secondary),
+    0 0 8px rgba(238, 255, 0, 0.35),
+    0 0 16px rgba(238, 255, 0, 0.2);
 }
 
-@keyframes pulse-glow {
-  0%, 100% {
-    text-shadow:
-      0 0 2px var(--color-accent-blue),
-      0 0 6px rgba(229, 255, 0, 0.25),
-      0 0 12px rgba(229, 255, 0, 0.18);
-  }
-  50% {
-    text-shadow:
-      0 0 4px var(--color-accent-blue),
-      0 0 12px rgba(229, 255, 0, 0.28),
-      0 0 24px rgba(229, 255, 0,0.22);
-  }
+.text-glow-cyan {
+  text-shadow:
+    0 0 2px var(--color-accent-primary),
+    0 0 8px rgba(0, 217, 255, 0.35),
+    0 0 16px rgba(0, 217, 255, 0.2);
 }
-.animate-pulse-glow {
-  animation: pulse-glow 2.2s infinite cubic-bezier(.4, 0, .2, 1);
+
+.box-glow-yellow {
+  box-shadow:
+    0 0 4px var(--color-accent-secondary),
+    0 0 12px rgba(238, 255, 0, 0.25);
+}
+
+.box-glow-cyan {
+  box-shadow:
+    0 0 4px var(--color-accent-primary),
+    0 0 12px rgba(0, 217, 255, 0.25);
+}
+
+/* Gradient text baseado nas cores do logo */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card hover effects */
+.card-glow:hover {
+  box-shadow: 0 0 24px rgba(0, 217, 255, 0.3), 0 0 48px rgba(238, 255, 0, 0.15);
+}
+
+/* Button glow */
+.btn-glow {
+  box-shadow: 0 0 16px rgba(238, 255, 0, 0.4), 0 0 32px rgba(0, 217, 255, 0.2);
+}
+
+.btn-glow:hover {
+  box-shadow: 0 0 24px rgba(238, 255, 0, 0.5), 0 0 48px rgba(0, 217, 255, 0.3);
 }

@@ -9,18 +9,20 @@ html {
 /* Tema escuro global */
 body {
   background-color: var(--color-background);
-  color: var(--color-text);
+  color: var(--color-text-base);
 }
 
-/* Variáveis CSS personalizadas */
+/* Variáveis CSS personalizadas - baseadas no logo */
 :root {
-  --color-background: #0D0D0F;
-  --color-text: #FFFFFF;
-  --color-text-muted: #A1A1AA;
-  --color-accent-blue: #4CC9F0;
-  --color-accent-pink: #F72585;
-  --color-accent-primary: #4CC9F0;
-  --color-accent-secondary: #F72585;
+  --color-background: #0A0A0C;
+  --color-primary: #141418;
+  --color-text: #F5F5F5;
+  --color-text-base: #F5F5F5;
+  --color-text-muted: #9CA3AF;
+  --color-accent-primary: #00D9FF;
+  --color-accent-secondary: #EEFF00;
+  --color-accent-blue: #00D9FF;
+  --color-accent-pink: #EEFF00;
 }
 
 /* Apenas animação essencial - otimizada */
@@ -31,13 +33,4 @@ body {
 
 .animate-fade-in {
   animation: fade-in 0.6s ease-out both;
-}
-
-/* Remover todas as animações pesadas */
-.animate-pulse-cta,
-.animate-pulse-slow,
-.animate-pulse-glow,
-.animate-fade-in.delay-150,
-.animate-fade-in.delay-300 {
-  animation: none;
 }
